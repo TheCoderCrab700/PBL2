@@ -2776,7 +2776,9 @@ void updatePenalties(sqlite3* db) {
             string updateSql = "UPDATE Patron SET Penalty_Fee = Penalty_Fee + ? WHERE ID = ?;";
             sqlite3_stmt* updateStmt;
             if (sqlite3_prepare_v2(db, updateSql.c_str(), -1, &updateStmt, nullptr) != SQLITE_OK) {
-                throw runtime_error("Failed to prepare update statement: " + string(sqlite3_errmsg(db)));
+                throw runtime_error("Failed to prepare 
+                
+                update statement: " + string(sqlite3_errmsg(db)));
             }
 
             sqlite3_bind_double(updateStmt, 1, penalty);

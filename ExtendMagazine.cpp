@@ -18,7 +18,10 @@ bool ExtendMagazine::loadFromDB(sqlite3* db) {
         std::cerr << "Failed to bind EISSN: " << sqlite3_errmsg(db) << std::endl;
         sqlite3_finalize(stmt);
         return false;
-    }
+    }  
+
+
+    
 
     if (sqlite3_step(stmt) == SQLITE_ROW) {
         ISSN = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
